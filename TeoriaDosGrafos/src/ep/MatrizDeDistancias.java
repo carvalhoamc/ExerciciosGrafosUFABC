@@ -104,7 +104,6 @@ public class MatrizDeDistancias {
 			Vertice u = (Vertice) Q.removeDaFila();
 			int indx = u.getIndice();
 			n = uiAdj[indx].size();
-			uiAdjItem = uiAdj[n];
 			
 			for(int i = 0; i < n; i++)
 			{
