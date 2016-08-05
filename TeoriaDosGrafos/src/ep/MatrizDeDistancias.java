@@ -105,10 +105,9 @@ public class MatrizDeDistancias {
 			int indx = u.getIndice();
 			n = uiAdj[indx].size();
 			
-			
 			for(int i = 0; i < n; i++)
 			{
-				
+				if(uiAdj[i].)
 				
 			}
 			
