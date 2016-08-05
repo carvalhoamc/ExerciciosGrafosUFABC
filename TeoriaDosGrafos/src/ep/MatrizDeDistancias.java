@@ -9,71 +9,6 @@ import ep0.Fila;
 import java.util.Iterator;
 import java.util.LinkedList;
 
-
-////Busca em Largura ou BFS
-//public class MatrizDeDistancias {
-//	
-//	private Grafo G;
-//	private int cnt;
-//	private int[] ord, st;
-//	private void searchC (Arco e){
-//		
-//		EdgeQueue Q = new EdgeQueue(G.getTotalDeVertices());
-//		Q.put(e);
-//		while (!Q.empty())
-//		{
-//			if ( ord[(e = Q.get()).w] == -1)
-//			{
-//				int v = e.v;
-//				int w = e.w;
-//				ord[w] = cnt++; st[w] = v;
-//				AdjList A = G.getAdjList(w);
-//				for( int t = A.beg(); !A.end(); t = A.nxt())
-//				{
-//					if (ord[t] == -1)
-//					{
-//						Q.put(new Edge(w,t));
-//					}
-//				}
-//				
-//				
-//			}
-//		}
-//	}
-//	
-//	MatrizDeDistancias(Grafo G, int v){
-//		
-//		this.G = G;
-//		int totalDeVertices = G.getTotalDeVertices();
-//		cnt = 0;
-//		ord = new int[totalDeVertices];
-//		st = new int[totalDeVertices];
-//		for(int t = 0; t < totalDeVertices; t++)
-//		{
-//			ord[t] = -1;
-//			st[t] = -1;
-//		}
-//		for( int t = 0; t < totalDeVertices; t++)
-//		{
-//			if (ord[t] == -1)
-//			{
-//				Vertice 
-//				searchC(new Arco(t, t));
-//			}
-//		}
-//	}
-//	
-//	int order(int v){
-//		
-//		return ord[v];
-//	}
-//	
-//	int ST(int v){
-//		
-//		return st[v];
-//	}
-//}
-
 public class MatrizDeDistancias {
 
 	private Grafo G;
@@ -86,10 +21,8 @@ public class MatrizDeDistancias {
 		this.G = g;
 		this.S = s;
 		Vertice[] V = G.getVertices();
-		LinkedList[] uiAdj = G.getListasDeAdjacencia();
-		LinkedList[] uiAdjItem;
-		int n = 0;
-		
+		LinkedList<Vertice>[] uiAdj = G.getListasDeAdjacencia();
+				
 		for (int i = 0; i < G.getTotalDeVertices(); i++) {
 			V[i].d = Constantes.INFINITO;
 			V[i].cor = Cores.BRANCO;			
@@ -98,21 +31,29 @@ public class MatrizDeDistancias {
 		s.cor = Cores.CINZA;
 		Q = new Fila();
 		Q.insereNaFila(S);
+		LinkedList<Vertice> aux = null;
+		int tamanho = 0;
 		
 		while(!Q.filaVazia())
 		{
 			Vertice u = (Vertice) Q.removeDaFila();
 			int indx = u.getIndice();
-			n = uiAdj[indx].size();
-			
-			for(int i = 0; i < n; i++)
+			aux = uiAdj[indx];
+			tamanho = aux.size();
+			if (tamanho != 0) //testa se ha arestas para este vertice
 			{
-				if(uiAdj[i].)
-				
+				for(int i = 0; i < tamanho; i++)
+				{
+					if (aux.get(i).cor == Cores.BRANCO)
+					{
+						aux.get(i).d = u.d + 1;
+						aux.get(i).cor = Cores.CINZA;
+						Q.insereNaFila(aux.get(i));						
+					}
+				}
 			}
 			
-			
-			
+			u.cor = Cores.PRETO;
 		}
 	}
 }
