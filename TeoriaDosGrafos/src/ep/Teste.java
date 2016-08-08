@@ -106,8 +106,8 @@ public class Teste {
 	public static void UsaFila(){
 		
 		Grafo k33 = Grafo.getK33();
-        k33.imprimeNaTela();
-        
+        k33.imprimeNaTelaLista();
+        k33.imprimeNaTelaMatriz();
         Fila q = new Fila();
         Vertice[] vertices = k33.getVertices();
         int n = k33.getTotalDeVertices();
@@ -125,8 +125,8 @@ public class Teste {
 	
 	public static void UsaFilaDePrioridade(){
 		Grafo k33 = Grafo.getK33();
-        k33.imprimeNaTela();
-
+        k33.imprimeNaTelaLista();
+        k33.imprimeNaTelaMatriz();
         
         Vertice[] vertices = k33.getVertices();
         FilaDePrioridade q = new FilaDePrioridade(vertices);
@@ -189,6 +189,8 @@ public class Teste {
 		v = G.getVertices()[0];
 		
 		MatrizDeDistancias ep1 = new MatrizDeDistancias(G, v);
+		G.imprimeNaTelaLista();
+		G.imprimeNaTelaMatriz();
 		
 		System.out.println("fim");
 		

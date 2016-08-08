@@ -15,7 +15,7 @@ public class UsaFilaDePrioridadeDistancia {
 
     public static void main( String args[] ) {
         Grafo k33 = Grafo.getK33();
-        k33.imprimeNaTela();
+        k33.imprimeNaTelaMatriz();
 
         
         Vertice[] vertices = k33.getVertices();

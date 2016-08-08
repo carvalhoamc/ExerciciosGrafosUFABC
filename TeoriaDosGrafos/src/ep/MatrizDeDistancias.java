@@ -21,7 +21,7 @@ public class MatrizDeDistancias {
 		this.G = g;
 		this.S = s;
 		Vertice[] V = G.getVertices();
-		LinkedList<Vertice>[] uiAdj = G.getListasDeAdjacencia();
+		LinkedList [] uiAdj = G.getListasDeAdjacencia();
 				
 		for (int i = 0; i < G.getTotalDeVertices(); i++) {
 			V[i].d = Constantes.INFINITO;
@@ -31,29 +31,41 @@ public class MatrizDeDistancias {
 		s.cor = Cores.CINZA;
 		Q = new Fila();
 		Q.insereNaFila(S);
-		LinkedList<Vertice> aux = null;
-		int tamanho = 0;
+				
+		int indx = 0;
+		Vertice u; 						//um vertice
+		Vertice uAux;					//um vertice
+		Arco aresta;					//uma aresta
 		
 		while(!Q.filaVazia())
 		{
-			Vertice u = (Vertice) Q.removeDaFila();
-			int indx = u.getIndice();
-			aux = uiAdj[indx];
-			tamanho = aux.size();
-			if (tamanho != 0) //testa se ha arestas para este vertice
+			u = (Vertice) Q.removeDaFila();
+			indx = u.getIndice();
+			
+			for(int i = 0; i < indx; i++)
 			{
-				for(int i = 0; i < tamanho; i++)
+				aresta = (Arco) uiAdj[indx].get(i);
+				uAux = aresta.getDestino();
+				if(uAux.cor == Cores.BRANCO)
 				{
-					if (aux.get(i).cor == Cores.BRANCO)
-					{
-						aux.get(i).d = u.d + 1;
-						aux.get(i).cor = Cores.CINZA;
-						Q.insereNaFila(aux.get(i));						
-					}
+					uAux.d = u.d++;
+					uAux.cor = Cores.CINZA;
+					Q.insereNaFila(uAux);
 				}
 			}
 			
 			u.cor = Cores.PRETO;
 		}
 	}
+
+	public void ImprimeMtrizDistancias(){
+		
+		
+		
+		
+		
+		
+	}
+
+
 }

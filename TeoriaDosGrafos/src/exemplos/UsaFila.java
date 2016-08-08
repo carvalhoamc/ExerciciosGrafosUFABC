@@ -15,7 +15,7 @@ public class UsaFila {
 
     public static void main( String args[] ) {
         Grafo k33 = Grafo.getK33();
-        k33.imprimeNaTela();
+        k33.imprimeNaTelaLista();
         
         Fila q = new Fila();
         Vertice[] vertices = k33.getVertices();

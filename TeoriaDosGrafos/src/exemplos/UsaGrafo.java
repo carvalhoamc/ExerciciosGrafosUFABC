@@ -20,6 +20,6 @@ public class UsaGrafo {
         // Lê os dados do grafo pelo teclado.
         G.leDoTeclado();
         // Imprime os dados do grafo na tela.
-        G.imprimeNaTela();
+        G.imprimeNaTelaMatriz();
     }
 }

@@ -95,8 +95,8 @@ public class Grafo {
     // Metodo para imprimir os atributos do grafo na tela.
     // Imprime as listas de adjacencia, a matriz de adjacencia,
     // e o total de vertices e de arcos.
-    public void imprimeNaTela() {
-        //System.out.println("\nListas de Adjacencia:");
+    public void imprimeNaTelaLista() {
+        System.out.println("\nListas de Adjacencia:");
         for (int i = 0; i < totalDeVertices; i++) {
             Vertice u = vertices[i];
             System.out.print(u.getNome()+": ");
@@ -108,15 +108,21 @@ public class Grafo {
             }
             System.out.println();
         }
-        //System.out.println("\nMatriz de Adjacencia:");
-        for (int i = 0; i < totalDeVertices; i++) {
-            for (int j = 0; j < totalDeVertices; j++)
-                if (matrizDeAdjacencia[i][j] != null)
-                    System.out.print("1 ");
-                else
-                    System.out.print("0 ");
-            System.out.println();
-        }
+        System.out.println("Total de vertices: "+totalDeVertices);
+        System.out.println("Total de arcos: "+totalDeArcos);
+    }
+        
+    public void imprimeNaTelaMatriz(){
+    	System.out.println("\nMatriz de Adjacencia:");
+    	for (int i = 0; i < totalDeVertices; i++) {
+    		for (int j = 0; j < totalDeVertices; j++)
+    			if (matrizDeAdjacencia[i][j] != null)
+    				System.out.print("1 ");
+    		    else
+    		    	System.out.print("0 ");
+    		
+    	System.out.println();
+    	}
         
         System.out.println("Total de vertices: "+totalDeVertices);
         System.out.println("Total de arcos: "+totalDeArcos);
