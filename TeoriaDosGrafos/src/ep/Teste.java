@@ -181,20 +181,27 @@ public class Teste {
 		//UsaOrdenaPorInsercao();
 		//UsaGrafoPonderado();
 		
-		System.out.println("Inicio Grafo Genérico");
-        Grafo G1 = new Grafo();
-        // Leitura do grafo via teclado.
-        G1.leDoTeclado();
-        //Vertice v = new Vertice(0,null);
-		//v = G.getVertices()[0];
+		//EP1
+//		System.out.println("Matriz de Distâncias");
+//        Grafo G1 = new Grafo();
+//        // Leitura do grafo via teclado.
+//        G1.leDoTeclado();
+//        MatrizDeDistancias ep1 = new MatrizDeDistancias(G1);
+//		ep1.CalculaDistancias(G1.getVertices()[0]);
+//		ep1.ImprimeMatrizDistancias();
+		//End EP1
 		
-		MatrizDeDistancias ep1 = new MatrizDeDistancias(G1);
-		ep1.CalculaDistancias(G1.getVertices()[0]);
-		ep1.ImprimeMatrizDistancias();
+		//EP2
+		System.out.println("MST");
+		GrafoPonderado Gpond = new GrafoPonderado();
+		Gpond.leDoTeclado();
+		Gpond.imprimeNaTela();
+		Gpond.imprimeNaTelaFluxoCapacidade();
+		MST ep2 = new MST(Gpond);
+		System.out.println("Peso arvore geradora minima: " + ep2.CalculaPesoArvoreGMinima());
 		
 		
-		//G.imprimeNaTelaLista();
-		//G.imprimeNaTelaMatriz();
+		//End EP2
 		
 		System.out.println("fim");
 		

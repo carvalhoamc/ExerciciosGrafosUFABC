@@ -81,7 +81,7 @@ public class GrafoPonderado extends Grafo {
     // Imprime as listas de adjacencia, a matriz de adjacencia,
     // e o total de vertices e de arcos.
     public void imprimeNaTela() {
-        //System.out.println("\nListas de Adjacencia:");
+        System.out.println("\nListas de Adjacencia:");
         for (int i = 0; i < totalDeVertices; i++) {
             Vertice u = vertices[i];
             System.out.print(u.getNome()+": ");
@@ -93,7 +93,7 @@ public class GrafoPonderado extends Grafo {
             }
             System.out.println();
         }
-        //System.out.println("\nMatriz de Adjacencia:");
+        System.out.println("\nMatriz de Adjacencia:");
         for (int i = 0; i < totalDeVertices; i++) {
             for (int j = 0; j < totalDeVertices; j++)
                 if (matrizDeAdjacencia[i][j] != null)
@@ -121,7 +121,7 @@ public class GrafoPonderado extends Grafo {
        a matriz de adjacencia, e o total de vertices e de arcos.
    */
     public void imprimeNaTelaFluxoCapacidade() {
-        //System.out.println("\nListas de Adjacencia:");
+        System.out.println("\nListas de Adjacencia:");
         for (int i = 0; i < totalDeVertices; i++) {
             Vertice u = vertices[i];
             System.out.print(u.getNome()+": ");
@@ -133,7 +133,7 @@ public class GrafoPonderado extends Grafo {
             }
             System.out.println();
         }
-        //System.out.println("\nMatriz de Adjacencia:");
+        System.out.println("\nMatriz de Adjacencia:");
         for (int i = 0; i < totalDeVertices; i++) {
             for (int j = 0; j < totalDeVertices; j++)
                 if (matrizDeAdjacencia[i][j] != null)
