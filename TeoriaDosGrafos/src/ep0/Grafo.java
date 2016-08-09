@@ -35,12 +35,17 @@ import java.util.LinkedList;
 
 public class Grafo {
     // Declaracao dos atributos do grafo.
-    protected int totalDeVertices, // Total de vertices no grafo.
-                    totalDeArcos;   // Total de arestas no grafo.
+    
+	protected int totalDeVertices; // Total de vertices no grafo.
+    
+    protected int totalDeArcos;   // Total de arestas no grafo.
+    
     // Vetor de vertices baseado no indice do vertice.
-    protected Vertice[] vertices;  
+    protected Vertice[] vertices;
+    
     // Listas de adjacencia do grafo, com referencias para arcos.
-    protected LinkedList[] listasDeAdjacencia; 
+    protected LinkedList[] listasDeAdjacencia;
+    
     // Matriz  de adjacencia do grafo, com referencias para arcos.
     protected Arco[][] matrizDeAdjacencia; 
     

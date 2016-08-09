@@ -182,15 +182,19 @@ public class Teste {
 		//UsaGrafoPonderado();
 		
 		System.out.println("Inicio Grafo Genérico");
-        Grafo G = new Grafo();
+        Grafo G1 = new Grafo();
         // Leitura do grafo via teclado.
-        G.leDoTeclado();
-        Vertice v = new Vertice(0,null);
-		v = G.getVertices()[0];
+        G1.leDoTeclado();
+        //Vertice v = new Vertice(0,null);
+		//v = G.getVertices()[0];
 		
-		MatrizDeDistancias ep1 = new MatrizDeDistancias(G, v);
-		G.imprimeNaTelaLista();
-		G.imprimeNaTelaMatriz();
+		MatrizDeDistancias ep1 = new MatrizDeDistancias(G1);
+		ep1.CalculaDistancias(G1.getVertices()[0]);
+		ep1.ImprimeMatrizDistancias();
+		
+		
+		//G.imprimeNaTelaLista();
+		//G.imprimeNaTelaMatriz();
 		
 		System.out.println("fim");
 		
