@@ -192,16 +192,28 @@ public class Teste {
 		//End EP1
 		
 		//EP2
-		System.out.println("MST");
-		GrafoPonderado Gpond = new GrafoPonderado();
-		Gpond.leDoTeclado();
-		Gpond.imprimeNaTela();
-		Gpond.imprimeNaTelaFluxoCapacidade();
-		MST ep2 = new MST(Gpond);
-		System.out.println("Peso arvore geradora minima: " + ep2.CalculaPesoArvoreGMinima());
-		
-		
+		//System.out.println("MST");
+		//GrafoPonderado Gpond = new GrafoPonderado();
+		//Gpond.leDoTeclado();
+		//Gpond.imprimeNaTela();
+		//Gpond.imprimeNaTelaFluxoCapacidade();
+		//MST ep2 = new MST(Gpond);
+		//System.out.println("Peso arvore geradora minima: " + ep2.CalculaPesoArvoreGMinima());		
 		//End EP2
+		
+		//EP3
+		System.out.println("Componentes Fortes");
+		Grafo G3 = new Grafo();
+		G3.leDoTeclado();
+		G3.imprimeNaTelaLista();
+		G3.imprimeNaTelaMatriz();
+		ComponentesFortes ep3 = new ComponentesFortes(G3);
+		
+		
+		
+		
+		//End EP3
+		
 		
 		System.out.println("fim");
 		
