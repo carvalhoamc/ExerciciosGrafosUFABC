@@ -192,46 +192,46 @@ public class Teste {
 		//End EP1
 		
 		//EP2
-		//System.out.println("MST");
-		//GrafoPonderado Gpond = new GrafoPonderado();
-		//Gpond.leDoTeclado();
-		//Gpond.imprimeNaTela();
-		//Gpond.imprimeNaTelaFluxoCapacidade();
-		//MST ep2 = new MST(Gpond);
-		//System.out.println("Peso arvore geradora minima: " + ep2.CalculaPesoArvoreGMinima());		
+//		System.out.println("MST");
+//		GrafoPonderado Gpond = new GrafoPonderado();
+//		Gpond.leDoTeclado();
+//		Gpond.imprimeNaTela();
+//		Gpond.imprimeNaTelaFluxoCapacidade();
+//		MST ep2 = new MST(Gpond);
+//		System.out.println("Peso arvore geradora minima: " + ep2.CalculaPesoArvoreGMinima());		
 		//End EP2
 		
 		//EP3
-		System.out.println("Componentes Fortes");
-		Grafo G3 = new Grafo();
-		G3.leDoTeclado();
-		G3.imprimeNaTelaLista();
-		G3.imprimeNaTelaMatriz();
-		Grafo G3t = new Grafo();
-		G3t = G3.getGrafoTransposto();
-		ComponentesFortes ep3 = new ComponentesFortes(G3, G3t);
-		System.out.println();
-		ep3.imprimeTopologicalSortGd();
-		ep3.imprimeTopologicalSortGt();
-		//System.out.println("Contador Gd:  " + ep3.getcontadorGd());
-		System.out.println();
-		System.out.println();
-		System.out.println();
-		System.out.println("Total de componentes fortemente conectados:  " + ep3.getcontadorGt());
+//		System.out.println("Componentes Fortes");
+//		Grafo G3 = new Grafo();
+//		G3.leDoTeclado();
+//		G3.imprimeNaTelaLista();
+//		G3.imprimeNaTelaMatriz();
+//		Grafo G3t = new Grafo();
+//		G3t = G3.getGrafoTransposto();
+//		ComponentesFortes ep3 = new ComponentesFortes(G3, G3t);
+//		System.out.println();
+//		ep3.imprimeTopologicalSortGd();
+//		ep3.imprimeTopologicalSortGt();
+//		//System.out.println("Contador Gd:  " + ep3.getcontadorGd());
+//		System.out.println();
+//		System.out.println();
+//		System.out.println();
+//		System.out.println("Total de componentes fortemente conectados:  " + ep3.getcontadorGt());
 		//End EP3
 		
 		//EP4
 //		System.out.println("Matriz de Distâncias Ponderadas");
 //		GrafoPonderado G4 = new GrafoPonderado();
-//		// Leitura do grafo via teclado.
 //		G4.leDoTeclado();
 //		MDPesos ep4 = new MDPesos(G4);
 //		ep4.CalculaDistancias(G4.getVertices()[0]);
 //		ep4.ImprimeMatrizDistancias();
+
 		
-		
-		
-		
+//EP4 ep4 = new EP4(G4);
+//ep4.DAGShorstestPaths(G4.getVertices()[0]);
+//ep4.ImprimeMatrizDistancias();
 		
 		//End EP4
 		

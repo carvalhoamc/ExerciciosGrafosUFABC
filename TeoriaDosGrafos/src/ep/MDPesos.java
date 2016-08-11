@@ -51,6 +51,7 @@ public class MDPesos {
 			V[i].cor = Cores.BRANCO;
 			V[i].chave = Constantes.INFINITO;
 			V[i].pai = null;
+			V[i].PI = null;
 		}
 		V[0].chave = 0; //raiz r
 		V[0].cor = Cores.PRETO;

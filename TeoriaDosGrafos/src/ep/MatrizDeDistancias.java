@@ -37,7 +37,6 @@ public class MatrizDeDistancias {
 	//Calcula distancias em relacao a s
 	public void CalculaDistancias(Vertice s) {
 		
-		int [][] matrizDistancia = new int [totalVertices][totalVertices];
 		V = G.getVertices();
 		
 		uiAdj = G.getListasDeAdjacencia();
