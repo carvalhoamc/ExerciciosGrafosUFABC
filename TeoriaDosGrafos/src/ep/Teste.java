@@ -202,17 +202,32 @@ public class Teste {
 		//End EP2
 		
 		//EP3
-		System.out.println("Componentes Fortes");
-		Grafo G3 = new Grafo();
-		G3.leDoTeclado();
-		G3.imprimeNaTelaLista();
-		G3.imprimeNaTelaMatriz();
-		ComponentesFortes ep3 = new ComponentesFortes(G3);
-		
-		
-		
-		
+//		System.out.println("Componentes Fortes");
+//		Grafo G3 = new Grafo();
+//		G3.leDoTeclado();
+//		G3.imprimeNaTelaLista();
+//		G3.imprimeNaTelaMatriz();
+//		Grafo G3t = new Grafo();
+//		G3t = G3.getGrafoTransposto();
+//		ComponentesFortes ep3 = new ComponentesFortes(G3, G3t);
+//		System.out.println();
+//		System.out.println(ep3.count());
 		//End EP3
+		
+		//EP4
+		System.out.println("Matriz de Distâncias Ponderadas");
+		GrafoPonderado G4 = new GrafoPonderado();
+		// Leitura do grafo via teclado.
+		G4.leDoTeclado();
+		MDPesos ep4 = new MDPesos(G4);
+		ep4.CalculaDistancias(G4.getVertices()[0]);
+		ep4.ImprimeMatrizDistancias();
+		
+		
+		
+		
+		
+		//End EP4
 		
 		
 		System.out.println("fim");
