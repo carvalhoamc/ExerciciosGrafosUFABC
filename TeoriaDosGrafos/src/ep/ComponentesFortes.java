@@ -17,10 +17,12 @@ public class ComponentesFortes {
 	
 	private Grafo G;
 	private Grafo Gtransp;
-	private Fila Q;
+	private Fila Qgd;
+	private Fila Qgt;
 	private int totalVertices;
 	private Vertice[] V;
 	private Vertice[] Vtransp;
+	private Vertice[] Vordenado;
 	private LinkedList [] uiAdj;
 	private LinkedList [] uiAdjtransp;
 	private Vertice vi;					//um vertice
@@ -56,6 +58,8 @@ public class ComponentesFortes {
 		Vtransp = new Vertice[totalVertices];
 		Vtransp = Gtransp.getVertices();
 		
+		Vordenado = new Vertice[totalVertices];
+		
 		this.uiAdj = new LinkedList[totalVertices];
 		this.uiAdj = G.getListasDeAdjacencia();
 		
@@ -68,6 +72,9 @@ public class ComponentesFortes {
 		id = new int[totalVertices];
 		contadorGd = 0;
 		contadorGt = 0;
+		
+		Qgd = new Fila();
+		Qgt = new Fila();
 				
 		for(int i = 0; i < totalVertices; i++)
 		{
@@ -86,85 +93,30 @@ public class ComponentesFortes {
 		
 		//***********************************************************************//
 		//dfs de G
-//		tempo = 0;
-//		for (int i = 0; i < totalVertices; i++) {
-//			
-//			if(V[i].cor == Cores.BRANCO)
-//			{
-//				VisitaDFSg(V[i]);
-//				contadorGd++;
-//			}
-//		}
-		//dfs de Gt
-//		tempo = 0;
-//		int indexAuxiliar = 0;
-//		for (int i = 0; i < totalVertices; i++) {
-//			
-//			indexAuxiliar = idindexOrdenado[i];
-//			if(Vtransp[indexAuxiliar].cor == Cores.BRANCO)
-//			{
-//				VisitaDFSgt(Vtransp[indexAuxiliar]);
-//				contadorGd++;
-//			}
-//		}
-		
-		
-		marked = new boolean[totalVertices];
-		id = new int[totalVertices];
-		DFO order = new DFO(Gtransp);
-		
-		for (int s : order.reversePost())
-		{
-			if (!marked[s])
-			{ 
-				dfs(G, s);
-				count++; 
-			}
+		tempo = 0;
+		for (int i = 0; i < totalVertices; i++) {
 			
-		}
-		
-	}
-	
-	private void dfs(Grafo G, int v)
-	{
-		marked[v] = true;
-		id[v] = count;
-		
-		Iterator<Arco> it = uiAdj[v].iterator();
-
-		while (it.hasNext()) 
-		{
-			aresta = it.next();
-			vi = aresta.getDestino();
-			if(!marked[vi.getIndice()])
+			if(V[i].cor == Cores.BRANCO)
 			{
-				dfs(G, vi.getIndice());				
-			}		
+				VisitaDFSg(V[i]);
+				contadorGd++;
+			}
 		}
+		ordenaVertices(Qgd);
+		//dfs de Gt
+		tempo = 0;
+		int auxiliar = 0;
+		for (int i = 0; i < totalVertices; i++) {
+			
+			auxiliar = Vordenado[i].getIndice();
+			if(Vtransp[auxiliar].cor == Cores.BRANCO)
+			{
+				VisitaDFSgt(Vtransp[auxiliar]);
+				contadorGt++;
+			}
+		}
+		
 	}
-	
-	public boolean stronglyConnected(int v, int w)
-	{
-		return id[v] == id[w]; 
-	}
-	
-	public int id(int v)
-	{ 
-		return id[v];
-	}
-	
-	public int count()
-	{
-		return count;
-	}
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	private void VisitaDFSg(Vertice ui)
 	{
@@ -186,12 +138,11 @@ public class ComponentesFortes {
 			}
 				
 		}
+		ui.cor = Cores.PRETO;
 		tempo = tempo + 1;
 		ui.f = tempo;
-		ui.cor = Cores.PRETO;
 		V[ui.getIndice()] = ui;
-		id[ui.getIndice()] = ui.f;
-		ordena();	
+		Qgd.insereNaFila(ui);   //ordenacao topologica
 	}
 	
 	private void VisitaDFSgt(Vertice ui)
@@ -214,11 +165,86 @@ public class ComponentesFortes {
 			}
 				
 		}
+		ui.cor = Cores.PRETO;
 		tempo = tempo + 1;
 		ui.f = tempo;
-		ui.cor = Cores.PRETO;
 		Vtransp[ui.getIndice()] = ui;
+		Qgt.insereNaFila(ui);   //ordenacao topologica
 	}
+	
+	public Fila topologicalSortGd()
+	{
+		return Qgd;
+				
+	}
+	
+	public Fila topologicalSortGt()
+	{
+		return Qgt;
+				
+	}
+	
+	public void ordenaVertices(Fila F)
+	{
+		Vertice v = new Vertice(0,null);
+		int i = totalVertices-1;
+		
+		while(!F.filaVazia())
+		{
+			v = (Vertice) F.removeDaFila();
+			Vordenado[i] = v;
+			i--;
+			
+		}
+	}
+	
+	
+	
+	public void imprimeTopologicalSortGd()
+	{
+		ordenaVertices(Qgd);
+		Vertice v = new Vertice(0,null);
+		System.out.println();
+		System.out.println("Grafo Direto");
+		System.out.print("Vertices Ordenados Topologicamente:  ");
+		
+//		while(!Qgd.filaVazia())
+//		{
+//			v = (Vertice) Qgd.removeDaFila();
+//			System.out.print(" " + v.f);
+//		}
+		
+		for(int i = 0; i < totalVertices; i ++)
+		{
+			System.out.print(" " + Vordenado[i].f);
+		}
+		
+		System.out.println();
+	}
+	
+	public void imprimeTopologicalSortGt()
+	{
+		ordenaVertices(Qgt);
+		Vertice v = new Vertice(0,null);
+		System.out.println();
+		System.out.println("Grafo Transposto");
+		System.out.print("Vertices Ordenados Topologicamente:  ");
+		
+//		while(!Qgt.filaVazia())
+//		{
+//			v = (Vertice) Qgt.removeDaFila();
+//			System.out.print(" " + v.f);
+//		}
+		
+		for(int i = 0; i < totalVertices; i ++)
+		{
+			System.out.print(" " + Vordenado[i].f);
+		}
+		
+		System.out.println();
+	}
+	
+	
 	
 	
 	
@@ -232,14 +258,7 @@ public class ComponentesFortes {
 		return contadorGt;		
 	}
 		
-	private void ordena()
-	{
-		OrdenaPorInsercao s = new OrdenaPorInsercao(id);
-        idOrdenado = s.getValoresOrdenados();
-        idindexOrdenado = s.getIndicesOrdenados();
-		
-	}
-		
+	
 		
 	
 	
